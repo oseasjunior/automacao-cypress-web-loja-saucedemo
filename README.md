@@ -1,51 +1,95 @@
-# automacao-cypress-web-loja-saucedemo
-Este projeto contém testes automatizados para a página da loja fictícia saucedemo
+# automacao-cypress-web-loja-saucedemo ✅
+Automação de testes E2E para a loja de demonstração *saucedemo* usando Cypress.
 
-## Estrutura
+---
 
-- **login.cy.js**: Arquivo principal dos testes.
-- **pages/loginPage.js**: Page Object Model para interações com a página de login.
-- **fixtures/dados.json**: Dados de teste (e-mails, senhas, mensagens de erro).
+## 🔧 Estrutura do projeto
 
-## Pré-requisitos
+- `cypress/e2e/login.cy.js` — testes de login (válido, inválido, campos vazios).
+- `cypress/e2e/burguerMenu.cy.js` — testes do menu hamburguer.
+- `cypress/e2e/pages/loginPage.js` — Page Object Model para a página de login.
+- `cypress/e2e/pages/burguerMenuPage.js` — Page Object Model para o menu Hamburguer
+- `cypress/fixtures/dados.json` — dados de teste (e-mails, senhas, mensagens).
+- `cypress/screenshots/` — screenshots gerados pelos testes.
 
-- Node.js instalado
-- Cypress instalado  v15.7.1 (`npm install cypress@15.7.1 --save-dev`)
+---
 
-## Como executar os testes
+## ⚙️ Pré-requisitos
 
-1. Clone o repositório.
+- Node.js (recomendado: versão LTS)
+- npm (vem com Node.js)
+- Cypress (já listado em `devDependencies` do `package.json`, versão compatível: `^15.7.1`).
+
+---
+
+## 🚀 Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone <repo-url>
+cd automacao-cypress-web-loja-saucedemo
+```
+
 2. Instale as dependências:
-  ```
-  npm install
-  ```
-3. Execute o Cypress:
-  ```
-  npx cypress open
-  ```
-  ou em modo headless:
-  ```
-  npx cypress run
-  ```
-ou se for executar em headless com algum navegador expecifico 
-Chrome
-```
-npm run cy:run:chrome
-```
-Edge
-```
-npm run cy:run:edge
+
+```bash
+npm install
 ```
 
-## Estrutura dos testes
+---
 
-- **beforeEach**: Carrega os dados do fixture e acessa a página de login.
-- **afterEach**: Limpa cookies e localStorage.
-- **Testes**:
-  - Login válido
-  - Login inválido
+## ▶️ Como executar os testes
 
-## Observações
+- Abrir a interface do Cypress (modo interativo):
 
-- Certifique-se de que o arquivo `dados.json` está corretamente configurado em `cypress/fixtures`.
-- O arquivo `loginPage.js` deve implementar os métodos utilizados nos testes.
+```bash
+npx cypress open
+```
+
+- Executar todos os testes em modo headless (padrão):
+
+```bash
+npx cypress run
+```
+
+- Executar em um navegador específico (via scripts do `package.json`):
+
+```bash
+npm run cy:run:chrome   # executa com Chrome
+npm run cy:run:edge     # executa com Edge
+```
+
+- Executar um arquivo de teste específico:
+
+```bash
+npx cypress run --spec "cypress/e2e/login.cy.js"
+```
+
+- Executar em modo headless mas com janela visível (headed):
+
+```bash
+npx cypress run --headed --browser chrome
+```
+
+---
+
+## 🧪 Detalhes dos testes
+
+- `beforeEach`: carrega o fixture `dados.json` e navega até a página de login.
+- `afterEach`: limpa cookies e `localStorage` para garantir testes isolados.
+- Os testes usam o padrão Page Object (pasta `pages`) para manter seletores e ações centralizados.
+
+---
+
+## 💡 Dicas e observações
+
+> - Verifique `cypress/fixtures/dados.json` para modificar dados de teste.
+> - Capturas de tela são salvas em `cypress/screenshots/` por execução com falha.
+> - Caso precise gerar relatórios (mochawesome), configure scripts adicionais conforme necessário.
+
+---
+
+**Autor:** Oseas Junior
+
+**Nota:** arquivo atualizado para facilitar execução e manutenção dos testes. 🔧

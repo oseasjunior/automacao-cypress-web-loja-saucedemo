@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
-import LoginPage from "./pages/loginPage";
-const loginPage = new LoginPage();
+import loginPage from "./pages/loginPage";
 
 
 describe("testes pagina login", () => {
